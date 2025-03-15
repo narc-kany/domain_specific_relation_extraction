@@ -1,0 +1,183 @@
+# Domain-Specific Relation Extraction Test Cases
+
+## Healthcare Domain Test Cases
+
+### Simple Cases
+
+**HC-1: Basic Medication-Disease Relation**
+```
+Aspirin is commonly used to treat headaches and reduce fever.
+```
+*Expected Entities:* Aspirin (MEDICATION), headaches (DISEASE/SYMPTOM), fever (SYMPTOM)
+*Expected Relations:* Aspirin treats headaches, Aspirin treats fever
+
+**HC-2: Basic Disease-Symptom Relation**
+```
+Diabetes causes excessive thirst, frequent urination, and fatigue.
+```
+*Expected Entities:* Diabetes (DISEASE), excessive thirst (SYMPTOM), frequent urination (SYMPTOM), fatigue (SYMPTOM)
+*Expected Relations:* Diabetes causes excessive thirst, Diabetes causes frequent urination, Diabetes causes fatigue
+
+**HC-3: Medication-Disease with Explicit Relation**
+```
+Insulin is prescribed to treat diabetes by helping the body process glucose.
+```
+*Expected Entities:* Insulin (MEDICATION), diabetes (DISEASE)
+*Expected Relations:* Insulin treats diabetes
+
+**HC-4: Procedure-Disease Relation**
+```
+A biopsy is performed to diagnose cancer in patients with suspicious growths.
+```
+*Expected Entities:* biopsy (PROCEDURE), cancer (DISEASE)
+*Expected Relations:* biopsy indicates cancer
+
+### Complex Cases
+
+**HC-5: Multiple Relations in a Paragraph**
+```
+Hypertension is a major risk factor for stroke and heart disease. Lisinopril helps control high blood pressure. Patients with hypertension should reduce sodium intake and engage in regular physical activity.
+```
+*Expected Entities:* Hypertension (DISEASE), stroke (DISEASE), heart disease (DISEASE), Lisinopril (MEDICATION), high blood pressure (SYMPTOM/DISEASE)
+*Expected Relations:* Hypertension causes stroke, Hypertension causes heart disease, Lisinopril treats hypertension, Lisinopril treats high blood pressure
+
+**HC-6: Multiple Medications and Diseases**
+```
+For arthritis patients, doctors may prescribe ibuprofen to reduce inflammation and pain. In more severe cases, methotrexate might be used to slow disease progression. Physical therapy is also recommended to maintain joint flexibility.
+```
+*Expected Entities:* arthritis (DISEASE), ibuprofen (MEDICATION), inflammation (SYMPTOM), pain (SYMPTOM), methotrexate (MEDICATION), physical therapy (PROCEDURE)
+*Expected Relations:* ibuprofen treats arthritis, ibuprofen treats inflammation, ibuprofen treats pain, methotrexate treats arthritis, physical therapy treats arthritis
+
+**HC-7: Complex Sentence Structure**
+```
+While antibiotics such as amoxicillin effectively treat bacterial infections like strep throat and pneumonia, they are ineffective against viral infections such as the common cold and influenza, which are better managed with rest, hydration, and sometimes antiviral medications like oseltamivir for influenza.
+```
+*Expected Entities:* antibiotics (MEDICATION), amoxicillin (MEDICATION), bacterial infections (DISEASE), strep throat (DISEASE), pneumonia (DISEASE), viral infections (DISEASE), common cold (DISEASE), influenza (DISEASE), antiviral medications (MEDICATION), oseltamivir (MEDICATION)
+*Expected Relations:* antibiotics treats bacterial infections, amoxicillin treats strep throat, amoxicillin treats pneumonia, antiviral medications treats influenza, oseltamivir treats influenza
+
+### Edge Cases
+
+**HC-8: Negation**
+```
+Aspirin does not treat cancer, but it may help manage pain associated with the disease.
+```
+*Expected Entities:* Aspirin (MEDICATION), cancer (DISEASE), pain (SYMPTOM)
+*Expected Relations:* Aspirin treats pain (but NOT: Aspirin treats cancer)
+
+**HC-9: Preventive Relations**
+```
+Regular exercise helps prevent heart disease and type 2 diabetes.
+```
+*Expected Entities:* exercise (PROCEDURE), heart disease (DISEASE), type 2 diabetes (DISEASE)
+*Expected Relations:* exercise prevents heart disease, exercise prevents type 2 diabetes
+
+**HC-10: Ambiguous Relation**
+```
+Studies show a link between excessive sugar consumption and diabetes, though causation is not definitively established.
+```
+*Expected Entities:* sugar consumption (SYMPTOM or None), diabetes (DISEASE)
+*Expected Relations:* Possibly: sugar consumption causes diabetes (but with low confidence)
+
+## Finance Domain Test Cases
+
+### Simple Cases
+
+**FIN-1: Basic Company-Product Relation**
+```
+Apple launched the new iPhone 15 Pro with advanced AI capabilities last quarter.
+```
+*Expected Entities:* Apple (COMPANY), iPhone 15 Pro (PRODUCT)
+*Expected Relations:* Apple launched iPhone 15 Pro
+
+**FIN-2: Basic Company-Metric Relation (Positive)**
+```
+Google reported a 20% increase in revenue, exceeding analyst expectations.
+```
+*Expected Entities:* Google (COMPANY), revenue (METRIC)
+*Expected Relations:* Google increased revenue
+
+**FIN-3: Basic Company-Metric Relation (Negative)**
+```
+Tesla's stock price decreased by 5% following the earnings report.
+```
+*Expected Entities:* Tesla (COMPANY), stock price (METRIC)
+*Expected Relations:* Tesla decreased stock price
+
+**FIN-4: Company Acquisition**
+```
+Microsoft acquired Activision Blizzard for $68.7 billion in a major gaming industry deal.
+```
+*Expected Entities:* Microsoft (COMPANY), Activision Blizzard (COMPANY)
+*Expected Relations:* Microsoft acquired Activision Blizzard
+
+### Complex Cases
+
+**FIN-5: Multiple Relations in a Paragraph**
+```
+Amazon announced strong quarterly results with revenue growth of 15% year-over-year. The company's cloud division, AWS, saw a 30% increase in sales. However, its international retail segment experienced a slight decrease in profit margins.
+```
+*Expected Entities:* Amazon (COMPANY), revenue (METRIC), growth (METRIC), AWS (PRODUCT/COMPANY), sales (METRIC), retail segment (PRODUCT), profit margins (METRIC)
+*Expected Relations:* Amazon increased revenue, AWS increased sales, retail segment decreased profit margins
+
+**FIN-6: Multiple Companies and Products**
+```
+While Facebook rebranded as Meta and invested heavily in its metaverse project, Google continued to focus on AI development and cloud services. Apple, meanwhile, launched its Vision Pro headset to compete in the augmented reality market.
+```
+*Expected Entities:* Facebook (COMPANY), Meta (COMPANY), metaverse (PRODUCT), Google (COMPANY), AI development (PRODUCT), cloud services (PRODUCT), Apple (COMPANY), Vision Pro (PRODUCT)
+*Expected Relations:* Facebook/Meta invested in metaverse, Google launched AI development, Google launched cloud services, Apple launched Vision Pro
+
+**FIN-7: Complex Sentence Structure**
+```
+Despite economic headwinds that caused many tech companies to implement layoffs, Microsoft reported better-than-expected earnings growth, driven primarily by its Azure cloud business, while simultaneously announcing a $10 billion investment in OpenAI to strengthen its position in the artificial intelligence market.
+```
+*Expected Entities:* tech companies (COMPANY), Microsoft (COMPANY), earnings (METRIC), growth (METRIC), Azure (PRODUCT), investment (METRIC/EVENT), OpenAI (COMPANY), artificial intelligence market (PRODUCT)
+*Expected Relations:* Microsoft increased earnings, Microsoft increased growth, Microsoft invested in OpenAI
+
+### Edge Cases
+
+**FIN-8: Negation**
+```
+Despite market rumors, Apple did not acquire Netflix and has not announced plans to enter the streaming service market directly.
+```
+*Expected Entities:* Apple (COMPANY), Netflix (COMPANY), streaming service market (PRODUCT)
+*Expected Relations:* None, or possibly "Apple did NOT acquire Netflix" with negation flag
+
+**FIN-9: Implicit Relations**
+```
+In a challenging quarter for the tech sector, Amazon's cloud revenue remained robust while competitors struggled with declining growth rates.
+```
+*Expected Entities:* tech sector (COMPANY/PRODUCT), Amazon (COMPANY), cloud revenue (METRIC), competitors (COMPANY), growth rates (METRIC)
+*Expected Relations:* Amazon increased cloud revenue, competitors decreased growth rates
+
+**FIN-10: Mixed Sentiment**
+```
+While Tesla's vehicle deliveries fell short of analyst expectations, the company's overall revenue increased due to growth in its energy business.
+```
+*Expected Entities:* Tesla (COMPANY), vehicle deliveries (METRIC), revenue (METRIC), energy business (PRODUCT)
+*Expected Relations:* Tesla decreased vehicle deliveries, Tesla increased revenue, energy business increased revenue
+
+## Real-World Examples
+
+**RW-1: Healthcare News Excerpt**
+```
+A new study published in the New England Journal of Medicine suggests that statin medications may reduce the risk of heart attacks by up to 30% in high-risk patients. Researchers found that patients taking atorvastatin showed significantly lower levels of LDL cholesterol and fewer cardiovascular events compared to the placebo group. However, the study noted an increased incidence of muscle pain as a side effect in approximately 5% of participants.
+```
+
+**RW-2: Finance News Excerpt**
+```
+NVIDIA Corporation (NASDAQ: NVDA) today reported record revenue for the fourth quarter ended January 28, 2024, of $22.1 billion, up 22% from a year ago and up 5% from the previous quarter. The company's data center revenue more than doubled from a year earlier to $14.5 billion. CEO Jensen Huang attributed the growth to demand for chips used in artificial intelligence applications. Despite the positive results, NVIDIA shares dropped 1% in after-hours trading as some analysts had expected even higher guidance for the next quarter.
+```
+
+**RW-3: Healthcare Research Abstract**
+```
+Background: Type 2 diabetes mellitus (T2DM) increases the risk of cardiovascular disease. This study evaluated whether empagliflozin, a sodium-glucose cotransporter 2 inhibitor, reduces cardiovascular morbidity and mortality in patients with T2DM and established cardiovascular disease.
+
+Methods: We randomly assigned patients to receive either empagliflozin (10 mg or 25 mg) or placebo once daily. The primary outcome was a composite of death from cardiovascular causes, nonfatal myocardial infarction, or nonfatal stroke.
+
+Results: A total of 7,020 patients were treated (empagliflozin, n=4,687; placebo, n=2,333) for a median of 3.1 years. The primary outcome occurred in 10.5% of patients in the empagliflozin group and in 12.1% of those in the placebo group (hazard ratio, 0.86; 95% confidence interval, 0.74 to 0.99; P=0.04). Empagliflozin treatment was associated with lower rates of hospitalization for heart failure and lower rates of death from any cause.
+```
+
+**RW-4: Financial Earnings Release**
+```
+Bank of America Corporation today announced financial results for the first quarter of 2024. The company reported net income of $8.2 billion, up 15% from the first quarter of 2023. Revenue, net of interest expense, increased 4% to $25.3 billion. The company's consumer banking division saw deposits grow by 3%, while investment banking fees declined by 8% compared to the same period last year. CEO Brian Moynihan said, "Our balanced business model delivered strong results as we focused on responsible growth. We maintained expense discipline while continuing to invest in our people and technology to better serve our clients."
+```

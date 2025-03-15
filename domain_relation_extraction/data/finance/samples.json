@@ -1,0 +1,79 @@
+{
+  "samples": [
+    {
+      "id": "finance-1",
+      "text": "Apple launched the new iPhone 15 last quarter, which significantly increased their revenue. The product launch event was well-received by analysts.",
+      "expected_entities": [
+        {"text": "Apple", "type": "COMPANY"},
+        {"text": "iPhone 15", "type": "PRODUCT"},
+        {"text": "revenue", "type": "METRIC"},
+        {"text": "product launch", "type": "EVENT"}
+      ],
+      "expected_relations": [
+        {"source": "Apple", "target": "iPhone 15", "type": "launched"},
+        {"source": "iPhone 15", "target": "revenue", "type": "increased"}
+      ]
+    },
+    {
+      "id": "finance-2",
+      "text": "Amazon acquired Whole Foods in 2017 for $13.7 billion. Following the acquisition, Amazon's market share in the grocery sector expanded considerably. This strategic move allowed Amazon to compete directly with traditional grocery retailers.",
+      "expected_entities": [
+        {"text": "Amazon", "type": "COMPANY"},
+        {"text": "Whole Foods", "type": "COMPANY"},
+        {"text": "acquisition", "type": "EVENT"},
+        {"text": "market share", "type": "METRIC"},
+        {"text": "grocery sector", "type": "PRODUCT"}
+      ],
+      "expected_relations": [
+        {"source": "Amazon", "target": "Whole Foods", "type": "acquired"},
+        {"source": "acquisition", "target": "market share", "type": "increased"}
+      ]
+    },
+    {
+      "id": "finance-3",
+      "text": "Tesla's stock price decreased by 5% after the company announced lower-than-expected delivery numbers. Despite this setback, the electric vehicle manufacturer reported strong revenue growth from its energy products division.",
+      "expected_entities": [
+        {"text": "Tesla", "type": "COMPANY"},
+        {"text": "stock price", "type": "METRIC"},
+        {"text": "delivery numbers", "type": "METRIC"},
+        {"text": "electric vehicle", "type": "PRODUCT"},
+        {"text": "revenue", "type": "METRIC"},
+        {"text": "energy products", "type": "PRODUCT"}
+      ],
+      "expected_relations": [
+        {"source": "delivery numbers", "target": "stock price", "type": "decreased"},
+        {"source": "energy products", "target": "revenue", "type": "increased"}
+      ]
+    },
+    {
+      "id": "finance-4",
+      "text": "JPMorgan Chase reported a 21% increase in quarterly profit, exceeding analysts' expectations. The bank's CEO attributed the strong performance to growth in investment banking and trading activities.",
+      "expected_entities": [
+        {"text": "JPMorgan Chase", "type": "COMPANY"},
+        {"text": "profit", "type": "METRIC"},
+        {"text": "investment banking", "type": "PRODUCT"},
+        {"text": "trading", "type": "PRODUCT"}
+      ],
+      "expected_relations": [
+        {"source": "JPMorgan Chase", "target": "profit", "type": "increased"},
+        {"source": "investment banking", "target": "profit", "type": "increased"},
+        {"source": "trading", "target": "profit", "type": "increased"}
+      ]
+    },
+    {
+      "id": "finance-5",
+      "text": "Microsoft launched Azure AI services to compete with Google's cloud offerings. The new product is expected to strengthen Microsoft's market position in the rapidly growing cloud computing sector.",
+      "expected_entities": [
+        {"text": "Microsoft", "type": "COMPANY"},
+        {"text": "Azure AI", "type": "PRODUCT"},
+        {"text": "Google", "type": "COMPANY"},
+        {"text": "cloud", "type": "PRODUCT"},
+        {"text": "market position", "type": "METRIC"}
+      ],
+      "expected_relations": [
+        {"source": "Microsoft", "target": "Azure AI", "type": "launched"},
+        {"source": "Azure AI", "target": "market position", "type": "increased"}
+      ]
+    }
+  ]
+}

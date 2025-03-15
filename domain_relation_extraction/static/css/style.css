@@ -1,0 +1,110 @@
+/* Custom styling for the application */
+
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+}
+
+#textInput {
+  resize: vertical;
+}
+
+#loadingIndicator {
+  padding: 20px;
+}
+
+#graphVisualization {
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Entity types styling */
+.entity-type {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.entity-disease {
+  background-color: #dc3545;
+}
+
+.entity-medication {
+  background-color: #0d6efd;
+}
+
+.entity-procedure {
+  background-color: #6f42c1;
+}
+
+.entity-symptom {
+  background-color: #fd7e14;
+}
+
+.entity-company {
+  background-color: #20c997;
+}
+
+.entity-product {
+  background-color: #0dcaf0;
+}
+
+.entity-metric {
+  background-color: #6c757d;
+}
+
+.entity-event {
+  background-color: #198754;
+}
+
+/* Relation types styling */
+.relation-treats {
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+.relation-causes {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.relation-prevents {
+  color: #198754;
+  font-weight: bold;
+}
+
+.relation-indicates {
+  color: #fd7e14;
+  font-weight: bold;
+}
+
+.relation-acquired {
+  color: #6f42c1;
+  font-weight: bold;
+}
+
+.relation-launched {
+  color: #20c997;
+  font-weight: bold;
+}
+
+.relation-increased {
+  color: #198754;
+  font-weight: bold;
+}
+
+.relation-decreased {
+  color: #dc3545;
+  font-weight: bold;
+}

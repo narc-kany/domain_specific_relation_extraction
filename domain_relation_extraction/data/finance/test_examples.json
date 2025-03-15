@@ -1,0 +1,14 @@
+[
+  {
+    "text": "Apple launched iPhone in 2007 which increased their revenue.",
+    "domain": "finance"
+  },
+  {
+    "text": "Amazon acquired Whole Foods in 2017. This acquisition increased their market share in the grocery sector.",
+    "domain": "finance"
+  },
+  {
+    "text": "Microsoft's cloud business has shown significant growth this quarter.\n                    The company announced a 15% increase in revenue, while their competitors \n                    experienced a market share decrease. Google launched a new AI product\n                    that analysts believe will strengthen their position in the market.",
+    "domain": "finance"
+  }
+]

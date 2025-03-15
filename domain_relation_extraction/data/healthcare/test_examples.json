@@ -1,0 +1,14 @@
+[
+  {
+    "text": "Aspirin treats headache and reduces inflammation.",
+    "domain": "healthcare"
+  },
+  {
+    "text": "Diabetes causes fatigue and excessive thirst. Insulin treats diabetes.",
+    "domain": "healthcare"
+  },
+  {
+    "text": "Patients with hypertension often experience headaches and dizziness.\n                    Lisinopril is commonly prescribed to treat hypertension.\n                    Regular exercise and a healthy diet can help prevent hypertension.\n                    A biopsy is performed to diagnose cancer, which can cause pain and fatigue.",
+    "domain": "healthcare"
+  }
+]

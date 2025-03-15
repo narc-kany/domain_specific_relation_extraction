@@ -1,0 +1,138 @@
+{
+  "healthcare": {
+    "test1": {
+      "entity_metrics": {
+        "expected": 2,
+        "extracted": 3,
+        "correctly_identified": 2,
+        "correctly_typed": 1,
+        "recall": 1.0,
+        "precision": 0.6666666666666666,
+        "f1": 0.8,
+        "type_accuracy": 0.5
+      },
+      "relation_metrics": {
+        "expected": 1,
+        "extracted": 1,
+        "correctly_identified": 1,
+        "correctly_typed": 1,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "type_accuracy": 1.0
+      }
+    },
+    "test2": {
+      "entity_metrics": {
+        "expected": 3,
+        "extracted": 4,
+        "correctly_identified": 3,
+        "correctly_typed": 3,
+        "recall": 1.0,
+        "precision": 0.75,
+        "f1": 0.8571428571428571,
+        "type_accuracy": 1.0
+      },
+      "relation_metrics": {
+        "expected": 2,
+        "extracted": 2,
+        "correctly_identified": 2,
+        "correctly_typed": 2,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "type_accuracy": 1.0
+      }
+    },
+    "test3": {
+      "entity_metrics": {
+        "expected": 8,
+        "extracted": 7,
+        "correctly_identified": 7,
+        "correctly_typed": 7,
+        "recall": 0.875,
+        "precision": 1.0,
+        "f1": 0.9333333333333333,
+        "type_accuracy": 1.0
+      },
+      "relation_metrics": {
+        "expected": 5,
+        "extracted": 3,
+        "correctly_identified": 3,
+        "correctly_typed": 3,
+        "recall": 0.6,
+        "precision": 1.0,
+        "f1": 0.7499999999999999,
+        "type_accuracy": 1.0
+      }
+    }
+  },
+  "finance": {
+    "test1": {
+      "entity_metrics": {
+        "expected": 3,
+        "extracted": 3,
+        "correctly_identified": 3,
+        "correctly_typed": 3,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "type_accuracy": 1.0
+      },
+      "relation_metrics": {
+        "expected": 2,
+        "extracted": 3,
+        "correctly_identified": 2,
+        "correctly_typed": 2,
+        "recall": 1.0,
+        "precision": 0.6666666666666666,
+        "f1": 0.8,
+        "type_accuracy": 1.0
+      }
+    },
+    "test2": {
+      "entity_metrics": {
+        "expected": 4,
+        "extracted": 4,
+        "correctly_identified": 4,
+        "correctly_typed": 4,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "type_accuracy": 1.0
+      },
+      "relation_metrics": {
+        "expected": 2,
+        "extracted": 2,
+        "correctly_identified": 2,
+        "correctly_typed": 2,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "type_accuracy": 1.0
+      }
+    },
+    "test3": {
+      "entity_metrics": {
+        "expected": 7,
+        "extracted": 7,
+        "correctly_identified": 7,
+        "correctly_typed": 7,
+        "recall": 1.0,
+        "precision": 1.0,
+        "f1": 1.0,
+        "type_accuracy": 1.0
+      },
+      "relation_metrics": {
+        "expected": 4,
+        "extracted": 4,
+        "correctly_identified": 2,
+        "correctly_typed": 2,
+        "recall": 0.5,
+        "precision": 0.5,
+        "f1": 0.5,
+        "type_accuracy": 1.0
+      }
+    }
+  }
+}

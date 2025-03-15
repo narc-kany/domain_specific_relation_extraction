@@ -1,0 +1,92 @@
+{
+  "samples": [
+    {
+      "id": "health-1",
+      "text": "Aspirin treats headache and reduces inflammation. Regular use of aspirin can prevent heart attacks in some patients.",
+      "expected_entities": [
+        {"text": "Aspirin", "type": "MEDICATION"},
+        {"text": "headache", "type": "SYMPTOM"},
+        {"text": "inflammation", "type": "SYMPTOM"},
+        {"text": "heart attacks", "type": "DISEASE"}
+      ],
+      "expected_relations": [
+        {"source": "Aspirin", "target": "headache", "type": "treats"},
+        {"source": "Aspirin", "target": "inflammation", "type": "treats"},
+        {"source": "Aspirin", "target": "heart attacks", "type": "prevents"}
+      ]
+    },
+    {
+      "id": "health-2",
+      "text": "Diabetes is a chronic condition that causes high blood sugar levels. Symptoms include excessive thirst, frequent urination, and fatigue. Insulin is used to treat diabetes by helping the body process sugar properly.",
+      "expected_entities": [
+        {"text": "Diabetes", "type": "DISEASE"},
+        {"text": "high blood sugar", "type": "SYMPTOM"},
+        {"text": "excessive thirst", "type": "SYMPTOM"},
+        {"text": "frequent urination", "type": "SYMPTOM"},
+        {"text": "fatigue", "type": "SYMPTOM"},
+        {"text": "Insulin", "type": "MEDICATION"}
+      ],
+      "expected_relations": [
+        {"source": "Diabetes", "target": "high blood sugar", "type": "causes"},
+        {"source": "Diabetes", "target": "excessive thirst", "type": "causes"},
+        {"source": "Diabetes", "target": "frequent urination", "type": "causes"},
+        {"source": "Diabetes", "target": "fatigue", "type": "causes"},
+        {"source": "Insulin", "target": "Diabetes", "type": "treats"}
+      ]
+    },
+    {
+      "id": "health-3",
+      "text": "A biopsy was performed to diagnose the potential cancer. The patient had been experiencing persistent pain and unexplained weight loss. After the procedure, the doctor prescribed ibuprofen to manage post-procedure discomfort.",
+      "expected_entities": [
+        {"text": "biopsy", "type": "PROCEDURE"},
+        {"text": "cancer", "type": "DISEASE"},
+        {"text": "pain", "type": "SYMPTOM"},
+        {"text": "weight loss", "type": "SYMPTOM"},
+        {"text": "ibuprofen", "type": "MEDICATION"},
+        {"text": "discomfort", "type": "SYMPTOM"}
+      ],
+      "expected_relations": [
+        {"source": "biopsy", "target": "cancer", "type": "indicates"},
+        {"source": "cancer", "target": "pain", "type": "causes"},
+        {"source": "cancer", "target": "weight loss", "type": "causes"},
+        {"source": "ibuprofen", "target": "discomfort", "type": "treats"}
+      ]
+    },
+    {
+      "id": "health-4",
+      "text": "Hypertension is a major risk factor for stroke and heart disease. Lisinopril helps control high blood pressure. Patients with hypertension should reduce sodium intake and engage in regular physical activity.",
+      "expected_entities": [
+        {"text": "Hypertension", "type": "DISEASE"},
+        {"text": "stroke", "type": "DISEASE"},
+        {"text": "heart disease", "type": "DISEASE"},
+        {"text": "Lisinopril", "type": "MEDICATION"},
+        {"text": "high blood pressure", "type": "SYMPTOM"}
+      ],
+      "expected_relations": [
+        {"source": "Hypertension", "target": "stroke", "type": "causes"},
+        {"source": "Hypertension", "target": "heart disease", "type": "causes"},
+        {"source": "Lisinopril", "target": "high blood pressure", "type": "treats"}
+      ]
+    },
+    {
+      "id": "health-5",
+      "text": "Arthritis causes joint pain and stiffness. While there's no cure for arthritis, physical therapy can help manage symptoms. Anti-inflammatory medications like ibuprofen may also provide relief from pain and swelling.",
+      "expected_entities": [
+        {"text": "Arthritis", "type": "DISEASE"},
+        {"text": "joint pain", "type": "SYMPTOM"},
+        {"text": "stiffness", "type": "SYMPTOM"},
+        {"text": "physical therapy", "type": "PROCEDURE"},
+        {"text": "ibuprofen", "type": "MEDICATION"},
+        {"text": "pain", "type": "SYMPTOM"},
+        {"text": "swelling", "type": "SYMPTOM"}
+      ],
+      "expected_relations": [
+        {"source": "Arthritis", "target": "joint pain", "type": "causes"},
+        {"source": "Arthritis", "target": "stiffness", "type": "causes"},
+        {"source": "physical therapy", "target": "joint pain", "type": "treats"},
+        {"source": "ibuprofen", "target": "pain", "type": "treats"},
+        {"source": "ibuprofen", "target": "swelling", "type": "treats"}
+      ]
+    }
+  ]
+}
